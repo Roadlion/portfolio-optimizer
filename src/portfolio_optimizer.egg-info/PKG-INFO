@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: portfolio_optimizer
+Version: 0.1
+Requires-Dist: pandas
+Requires-Dist: yfinance
+Dynamic: requires-dist

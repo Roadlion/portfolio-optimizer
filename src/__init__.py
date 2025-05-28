@@ -1,0 +1,1 @@
+from .data_fetching.fetch_yfinance import get_price_data

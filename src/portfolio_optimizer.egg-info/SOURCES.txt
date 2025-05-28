@@ -1,0 +1,8 @@
+setup.py
+src/data_fetching/__init__.py
+src/data_fetching/fetch_yfinance.py
+src/portfolio_optimizer.egg-info/PKG-INFO
+src/portfolio_optimizer.egg-info/SOURCES.txt
+src/portfolio_optimizer.egg-info/dependency_links.txt
+src/portfolio_optimizer.egg-info/requires.txt
+src/portfolio_optimizer.egg-info/top_level.txt

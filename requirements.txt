@@ -1,0 +1,6 @@
+# requirements.txt
+yfinance>=0.2.36
+pandas
+numpy
+matplotlib
+scikit-learn
