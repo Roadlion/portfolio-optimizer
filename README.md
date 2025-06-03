@@ -16,7 +16,7 @@ The goal is to build a portfolio optimization tool using a variety of strategies
 
 Right now, this project is *completely inoperable*. Just code fragments, broken ideas, and unfinished thoughts. But that’s part of the plan.
 
-Over time, I’ll be refining it while sharpening both my programming and financial analysis skills. I don’t exactly love financial engineering — but hey, it pays the bills. My bigger dream is to fund my actual passions: robotics, electronics, and building cool shit that makes me feel alive.
+Over time, I’ll be refining it while sharpening both my programming, machine learning, and financial analysis skills. I genuinely do not enjoy financial engineering — but unfortunately, it pays quite well. My bigger dream is to fund my actual passions: robotics, electronics, and building cool shit that makes me feel alive.
 
 ---
 
@@ -31,6 +31,8 @@ This code is **not tested with real money**. If you use it and lose money, that'
 I’ll be honest — part of the reason I’m doing this is because I want a GitHub page that looks more impressive than my ex’s and her new boyfriend’s. Petty? Maybe. Effective fuel? Absolutely.
 
 I have an inferiority complex, but I’m turning it into a fire that drives me to build, learn, and outgrow who I used to be.
+
+Also it'd be pretty cool to be a giga-chad who knows how code, engineer, fight, play instruments, draw, etc. A true renaissance man. Maybe I'm just a high functioning autist (which is most likely the case).
 
 ---
 
