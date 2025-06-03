@@ -36,4 +36,4 @@ Also it'd be pretty cool to be a giga-chad who knows how code, engineer, fight, 
 
 ---
 
-Feel free to fork, remix, or learn from this code however you want. Just don't bet your retirement fund on it.  
+Feel free to fork, remix, or learn from this code however you want. Just don't bet your retirement fund on it.  Or bet your retirement fund on a computer algorithm, it's your life brah.
