@@ -1,63 +1,53 @@
 import numpy as np
-import pandas as pd
-#Sharpe Ratio Function
-def calc_sharpe_ratio(total_investment, tickers, weights, mean_returns, cov_matrix, trading_days, risk_free_rate=0.044):
-    portfolio_return = np.dot(weights, mean_returns) * trading_days #np.dot used for multiplication, if array are both 2D then it does matrix multiplication. already annualized.
-    
-    portfolio_volatility = (np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights))) * np.sqrt(trading_days))*100 #percentage
-    
-    sharpe_ratio = (portfolio_return - risk_free_rate) / portfolio_volatility #calculates Sharpe Ratio
 
-    weights_df = pd.DataFrame(data=weights, index=tickers, columns=['Weight']) #how much weight each asset has
+def calc_sharpe_ratio(expected_returns, weights, cov_matrix, trading_days, risk_free_rate):
+    """
+    Calculates Sharpe Ratio and interprets volatility.
 
-    weights_df['Weight'] = weights_df['Weight'] * 100  # convert to percent
+    Parameters:
+    - mean_returns: array-like of expected returns per asset (from CAPM or historical)
+    - weights: array-like of portfolio weights (should sum to 1)
+    - cov_matrix: covariance matrix of asset returns
+    - trading_days: number of trading days in the chosen period
+    - risk_free_rate: annualized risk-free rate (default is 4.4%)
 
-    # Calculate dollar allocation per stock
-    weights_df['USD Allocation'] = weights_df['Weight'] * total_investment
+    Returns:
+    - sharpe_ratio: float
+    - portfolio_volatility: float (annualized %)
+    """
+    # Annualized portfolio return
+    portfolio_return = np.dot(weights, expected_returns) * trading_days
 
-    # Reorder columns for clarity
-    weights_df = weights_df[['Weight', 'USD Allocation']]
+    # Annualized volatility (percentage)
+    portfolio_volatility = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights))) * np.sqrt(trading_days) * 100
 
-    weights_df['Projected Return ($)'] = portfolio_return*weights_df['USD Allocation']
-    weights_df = weights_df[['Weight', 'USD Allocation', 'Projected Return ($)']]
+    # Sharpe Ratio
+    sharpe_ratio = (portfolio_return - risk_free_rate) / portfolio_volatility
 
-    total_projected_return_usd = weights_df['Projected Return ($)'].sum()
-
-
+    # Interpret Sharpe Ratio
     print(f"Sharpe Ratio: {sharpe_ratio:.4f}")
-
-    
     if sharpe_ratio < 1.0:
-        print("Sharpe Ratio Intepretation: Poor risk adjusted return")
-    elif sharpe_ratio == 1.0:
-        print("Sharpe Ratio Intepretation: Acceptable")
-    elif sharpe_ratio > 1.0:
-        print("Sharpe Ratio Intepretation: Good")
-    elif sharpe_ratio > 2.0:
-        print("Sharpe Ratio Intepretation: Very good")
-    elif sharpe_ratio > 3.0:
-        print("Sharpe Ratio Intepretation: Excellent")
-    
+        print("Sharpe Ratio Interpretation: Poor risk-adjusted return")
+    elif sharpe_ratio < 2.0:
+        print("Sharpe Ratio Interpretation: Acceptable to Good")
+    elif sharpe_ratio < 3.0:
+        print("Sharpe Ratio Interpretation: Very good")
+    else:
+        print("Sharpe Ratio Interpretation: Excellent")
 
-    print(f"Portfolio Return: {portfolio_return:.4f}")
-
-    print(f"Portfolio Volatility: {portfolio_volatility:.4f}%")
-
+    # Interpret Volatility
+    print(f"Portfolio Volatility: {portfolio_volatility:.2f}%")
     if portfolio_volatility < 10:
-        print("Volatility Intepretation: Cash-like stability")
+        print("Volatility Interpretation: Cash-like stability")
     elif portfolio_volatility < 15:
-        print("Volatility Intepretation: Defensive, low sensitivity to markets")
+        print("Volatility Interpretation: Defensive")
     elif portfolio_volatility < 20:
-        print("Volatility Intepretation: Typical diversified portfolio")
+        print("Volatility Interpretation: Typical diversified portfolio")
     elif portfolio_volatility < 30:
-        print("Volatility Intepretation: Aggressive growth/sector risk ")
+        print("Volatility Interpretation: Aggressive growth")
     elif portfolio_volatility < 50:
-        print("Volatility Intepretation: Speculative, large swings")
-    elif portfolio_volatility > 50:
-        print("Volatility Intepretation: Casino-level risk")
-    
-    print("Portfolio Weights (%):")
-    
-    print(weights_df)
+        print("Volatility Interpretation: Speculative")
+    else:
+        print("Volatility Interpretation: Casino-level risk")
 
-    print(f"Total Projected Returns ($): {total_projected_return_usd:.2f}")
+    return sharpe_ratio, portfolio_volatility
