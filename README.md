@@ -26,14 +26,4 @@ This code is **not tested with real money**. If you use it and lose money, that'
 
 ---
 
-## 🙃 The Real Motivation
-
-I’ll be honest — part of the reason I’m doing this is because I want a GitHub page that looks more impressive than my ex’s and her new boyfriend’s. Petty? Maybe. Effective fuel? Absolutely.
-
-I have an inferiority complex, but I’m turning it into a fire that drives me to build, learn, and outgrow who I used to be.
-
-Also it'd be pretty cool to be a giga-chad who knows how code, engineer, fight, play instruments, draw, etc. A true renaissance man. Maybe I'm just a high functioning autist (which is most likely the case).
-
----
-
 Feel free to fork, remix, or learn from this code however you want. Just don't bet your retirement fund on it.  Or bet your retirement fund on a computer algorithm, it's your life brah.
